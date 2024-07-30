@@ -1,0 +1,38 @@
+@use "variables" as var;
+@mixin fonts($family, $size, $weight, $line, $align, $color) {
+  font-family: $family;
+  font-size: $size;
+  font-weight: $weight;
+  line-height: $line;
+  text-align: $align;
+  color: $color;
+}
+
+@mixin flex {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+@mixin btn(
+  $padding,
+  $family,
+  $size,
+  $weight,
+  $line,
+  $align,
+  $color,
+  $bg-color
+) {
+  padding: $padding;
+  @include fonts($family, $size, $weight, $line, $align, $color);
+  background-color: $bg-color;
+  border: none;
+}
+
+@mixin grid($column, $gap) {
+  display: grid;
+  grid-template-columns: repeat($column, 1fr);
+  gap: $gap;
+  align-items: center;
+}

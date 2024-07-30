@@ -1,0 +1,106 @@
+@use "../layout/flex" as flx;
+@use "../utils/mixins" as mxn;
+@use "../utils/variables" as var;
+@use "./grid" as grd;
+footer {
+  padding: 100px 0 117px;
+  .footer {
+    @include flx.flex(center, space-between, 0);
+    .footer-logos {
+      .footer-logos__p1 {
+        padding: 40px 0 64px;
+        width: 300px;
+        @include mxn.fonts("Open Sans", 16px, 400, 28px, left, var.$text-grey);
+      }
+      .footer-logos__p2 {
+        @include mxn.fonts("Open Sans", 16px, 400, 28px, left, var.$text-grey);
+      }
+    }
+    .footer-menus {
+      @include grd.grid(3, 96px);
+      .footer-menu {
+        .footer-menu__item {
+          p {
+            padding-bottom: 32px;
+            @include mxn.fonts(
+              "Open Sans",
+              20px,
+              700,
+              32px,
+              left,
+              var.$text-black
+            );
+          }
+          .footer-menu__link {
+            display: block;
+            padding-bottom: 30px;
+            @include mxn.fonts(
+              "Open Sans",
+              20px,
+              400,
+              32px,
+              left,
+              var.$text-grey
+            );
+            @include flx.flex(center, space-between, 10px);
+            .footer-link__span {
+              padding: 1px 14px;
+              border-radius: 120px;
+              background-color: var.$bg-green;
+              @include mxn.fonts(
+                "Open Sans",
+                13px,
+                700,
+                28px,
+                left,
+                var.$bg-darkBlue
+              );
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 860px) {
+  footer {
+    .footer {
+      flex-direction: column;
+      .footer-logos {
+        padding-bottom: 40px;
+        .footer-logos__p1 {
+          width: 100%;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 560px) {
+  footer {
+    .footer {
+      .footer-menus {
+        @include grd.grid(2, 40px 96px);
+      }
+    }
+  }
+}
+@media (max-width: 445px) {
+  footer {
+    .footer {
+      .footer-menus {
+        @include grd.grid(2, 30px 20px);
+      }
+    }
+  }
+}
+@media (max-width: 330px) {
+  footer {
+    .footer {
+      .footer-menus {
+        @include grd.grid(1, 30px 20px);
+      }
+    }
+  }
+}

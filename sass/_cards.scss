@@ -1,0 +1,71 @@
+@use "mixins" as mxn;
+@use "variables" as var;
+
+main {
+  padding: 353px 0 150px;
+  background-color: var.$bg-blue;
+  .card-header {
+    text-align: center;
+    h1 {
+      @include mxn.fonts(Poppins, 52px, 400, 49px, center, var.$text-white);
+    }
+  }
+  .row {
+    padding-top: 62px;
+    @include mxn.grid(3, 0 20px);
+    @media (max-width: 1000px) {
+      @include mxn.grid(2, 60px 20px);
+    }
+    @media (max-width: 650px) {
+      @include mxn.grid(1, 60px 0);
+    }
+
+    .card {
+      height: 429px;
+      padding: 41px;
+      background-color: var.$text-white;
+      transition: 0.5s;
+      &:hover {
+        // display: flex;
+        // align-items: center;
+        // flex-direction: column;
+        height: 469px;
+        // transform: scaleY(1.2);
+      }
+      .card--text__color {
+        @include mxn.fonts(Poppins, 15px, 400, 23px, left, var.$bg-blue);
+      }
+      .card--prices {
+        padding: 20px 0 36px;
+        .card--price {
+          @include mxn.fonts(Poppins, 55px, 400, 34px, left, var.$text-black);
+        }
+        .card--price__smile {
+          @include mxn.fonts(Poppins, 14px, 400, 34px, left, var.$text-black);
+        }
+      }
+      .card--div {
+        @include mxn.flex;
+        .card-about {
+          @include mxn.fonts(Poppins, 13px, 400, 20px, left, var.$text-black);
+        }
+      }
+      button {
+        margin: 30px 0 21px;
+        @include mxn.btn(
+          12px 25px,
+          Poppins,
+          14px,
+          400px,
+          23px,
+          left,
+          var.$text-white,
+          var.$text-green
+        );
+      }
+      .card--text {
+        @include mxn.fonts(Poppins, 11px, 400, 19px, left, var.$bg-grey);
+      }
+    }
+  }
+}
